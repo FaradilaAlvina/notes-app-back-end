@@ -11,7 +11,7 @@ const addNoteHandler = (request, h) => {
   const updatedAt = createdAt
 
   const newNote = {
-    title, tags, body, id, createdAt, updatedAt
+    id, title, tags, body, createdAt, updatedAt
   }
 
   notes.push(newNote)
@@ -24,7 +24,10 @@ const addNoteHandler = (request, h) => {
       status: 'success',
       message: 'Catatan berhasil ditambahkan',
       data: {
-        noteId: id
+        noteId: id,
+        title: title,
+        tags: tags,
+        body: body
       }
     })
     response.code(201)
